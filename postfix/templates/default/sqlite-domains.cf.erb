@@ -1,2 +1,2 @@
 dbpath = <%= node[:dovecot][:db][:path] %>
-query = SELECT domain FROM transports WHERE domain == '%s'
+query = SELECT 1 FROM users WHERE <%= node[:dovecot][:db][:columns][:user] %> == '%%@%s'
