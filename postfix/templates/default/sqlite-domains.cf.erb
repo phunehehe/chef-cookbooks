@@ -1,2 +1,2 @@
 dbpath = <%= node[:dovecot][:db][:path] %>
-query = SELECT 1 FROM users WHERE <%= node[:dovecot][:db][:columns][:user] %> == '%%@%s'
+query = SELECT 1 FROM users WHERE <%= node[:dovecot][:db][:columns][:user] %> LIKE '%%@%s'
