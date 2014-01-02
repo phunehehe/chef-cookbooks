@@ -15,12 +15,12 @@ connect = host=<%= db[:host] %> \
 
 default_pass_scheme = SHA512-CRYPT
 
-password_query = SELECT <%= columns[:user] %>       AS user, \
-                        <%= columns[:password] %>   AS password, \
-                        <%= columns[:uid] %>        AS userdb_uid, \
-                        <%= columns[:gid] %>        AS userdb_gid, \
-                        <%= columns[:home_dir] %>    AS userdb_home, \
-                        <%= columns[:mail_dir] %>    AS userdb_mail \
+password_query = SELECT '%u'                      AS user, \
+                        <%= columns[:password] %> AS password, \
+                        <%= columns[:uid] %>      AS userdb_uid, \
+                        <%= columns[:gid] %>      AS userdb_gid, \
+                        <%= columns[:home_dir] %> AS userdb_home, \
+                        <%= columns[:mail_dir] %> AS userdb_mail \
                  FROM users WHERE <%= columns[:user] %> = '%u'
 
 user_query = SELECT <%= columns[:uid] %>      AS uid, \
