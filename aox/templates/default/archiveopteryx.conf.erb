@@ -6,7 +6,7 @@ db-address = 127.0.0.1
 db-port = 5432
 db-name = archiveopteryx
 db-user = aox
-db-password = '(database user password here)'
+db-password = '<%= node[:aox][:db][:password] %>'
 
 # Uncomment the next line to log more (or set it to debug for even more).
 # log-level = info

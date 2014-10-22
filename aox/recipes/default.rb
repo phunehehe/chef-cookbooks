@@ -46,5 +46,14 @@ package 'aox' do
     provider node[:fpm][:provider]
 end
 
-
 execute '/usr/local/archiveopteryx/lib/installer -s /var/run/postgresql/.s.PGSQL.5432'
+
+
+postgresql_user 'aox' do
+    password node[:aox][:db][:password]
+end
+
+template '/usr/local/archiveopteryx/archiveopteryx.conf' do
+    mode '600'
+    user 'aox'
+end
