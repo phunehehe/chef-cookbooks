@@ -35,6 +35,7 @@ default[:postfix][:content_filter] = ''
 default[:postfix][:disable_dns_lookups] = 'no'
 default[:postfix][:inet_protocols] = 'all'
 default[:postfix][:local_recipient_maps] = 'proxy:unix:passwd.byname $alias_maps'
+default[:postfix][:local_destination_recipient_limit] = 1
 default[:postfix][:mail_relay_networks] = ['127.0.0.0/8']
 default[:postfix][:mailbox_command] = ''
 default[:postfix][:mailbox_size_limit] = 51200000

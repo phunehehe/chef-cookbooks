@@ -13,6 +13,7 @@ mynetworks_style = <%= postfix[:mynetworks_style] %>
 
 # Set to empty if using virtual domain
 local_recipient_maps = <%= postfix[:local_recipient_maps] %>
+local_destination_recipient_limit = <%= postfix[:local_destination_recipient_limit] %>
 mydestination = <%= ([
     postfix[:myhostname],
     node[:hostname],
@@ -93,6 +94,7 @@ biff = no
 content_filter = <%= postfix[:content_filter] %>
 inet_protocols = <%= postfix[:inet_protocols] %>
 mailbox_command = <%= postfix[:mailbox_command] %>
+mailbox_transport = <%= postfix[:mailbox_transport] %>
 receive_override_options = <%= postfix[:receive_override_options] %>
 recipient_delimiter = +
 relay_domains = <%= postfix[:relay_domains].join(', ') %>
