@@ -14,4 +14,10 @@ when 'ubuntu'
         ruby-dev
     }
     set[:fpm][:package_type] = 'deb'
+    if platform_version.to_f >= 14.04
+        set[:fpm][:dependencies] = %w{
+            rubygems-integration
+            ruby-dev
+        }
+    end
 end
