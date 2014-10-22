@@ -50,10 +50,18 @@ execute '/usr/local/archiveopteryx/lib/installer -s /var/run/postgresql/.s.PGSQL
 
 
 postgresql_user 'aox' do
-    password node[:aox][:db][:password]
+    password node[:aox][:db][:user_password]
 end
 
 template '/usr/local/archiveopteryx/archiveopteryx.conf' do
     mode '600'
     user 'aox'
+end
+
+postgresql_user 'aoxsuper' do
+    password node[:aox][:db][:owner_password]
+end
+
+template '/usr/local/archiveopteryx/aoxsuper.conf' do
+    mode '400'
 end
