@@ -1,0 +1,51 @@
+# Archiveopteryx configuration. See archiveopteryx.conf(5) or
+# http://aox.org/conf/ for details and other variables.
+# Automatically generated while installing Archiveopteryx 3.2.0.
+
+db-address = 127.0.0.1
+db-port = 5432
+db-name = archiveopteryx
+db-user = aox
+db-password = '(database user password here)'
+
+# Uncomment the next line to log more (or set it to debug for even more).
+# log-level = info
+
+# Specify the hostname if Archiveopteryx gets it wrong at runtime.
+# (We suggest not using the name "localhost".)
+# hostname = fully.qualified.hostname
+
+# If soft-bounce is set, configuration problems will not cause mail
+# loss. Instead, the mail will be queued by the MTA. Uncomment the
+# following when you are confident that mail delivery works.
+# soft-bounce = disabled
+
+# Change the following to accept LMTP connections on an address
+# other than the default localhost.
+# lmtp-address = 192.0.2.1
+# lmtp-port = 2026
+
+# Uncomment the following to support subaddressing: foo+bar@example.org
+# use-subaddressing = true
+
+# Uncomment the following to keep a filesystem copy of all messages
+# that couldn't be parsed and delivered into the database.
+# message-copy = errors
+# message-copy-directory = /usr/local/archiveopteryx/messages
+
+# Uncomment the following ONLY if necessary for debugging.
+# security = off
+# use-tls = false
+
+# Uncomment the next line to use your own TLS certificate.
+# tls-certificate = /usr/local/archiveopteryx/...
+
+# Uncomment the following to reject all plaintext passwords.
+# allow-plaintext-passwords = never
+# Uncomment the following to require TLS to read or send mail.
+# allow-plaintext-access = never
+
+# There are almost a hundred other configuration variables.
+# The ones above are only what many people will want to change during
+# installation. There are full lists at http://aox.org/conf/ and in
+# the archiveopteryx.conf manual page.
