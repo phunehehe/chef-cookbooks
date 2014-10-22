@@ -1,0 +1,7 @@
+# Archiveopteryx configuration. See aoxsuper.conf(5) for details.
+# Automatically generated while installing Archiveopteryx 3.2.0.
+
+# Security note: Anyone who can read this password can do
+# anything to the database, including delete all mail.
+db-owner = aoxsuper
+db-owner-password = '<%= node[:aox][:db][:owner_password] %>'
