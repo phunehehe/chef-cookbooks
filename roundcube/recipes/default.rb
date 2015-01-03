@@ -58,11 +58,13 @@ template "#{site_dir}/config/config.inc.php" do
     mode '644'
 end
 
-template "#{site_dir}/plugins/password/config.inc.php" do
-    source 'password-config.inc.php.erb'
-    mode '600'
-    owner php_user
-    only_if { node[:roundcube][:plugins].include?('password') }
+%w{ managesieve password }.each do |p|
+    template "#{site_dir}/plugins/#{p}/config.inc.php" do
+        source "#{p}-config.inc.php.erb"
+        mode '600'
+        owner php_user
+        only_if { node[:roundcube][:plugins].include?(p) }
+    end
 end
 
 

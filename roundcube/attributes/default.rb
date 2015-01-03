@@ -45,6 +45,7 @@ default[:roundcube][:imap_force_caps] = false
 default[:roundcube][:ip_check] = false
 default[:roundcube][:log_driver] = 'file'
 default[:roundcube][:mail_pagesize] = 50
+default[:roundcube][:managesieve_auth_type] = ''
 default[:roundcube][:mdn_requests] = 0
 default[:roundcube][:messages_cache] = false
 default[:roundcube][:plugins] = []
