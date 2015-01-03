@@ -33,7 +33,7 @@ use-subaddressing = true
 # Uncomment the following to keep a filesystem copy of all messages
 # that couldn't be parsed and delivered into the database.
 message-copy = errors
-message-copy-directory = /usr/local/archiveopteryx/messages
+message-copy-directory = <%= node[:aox][:message_copy_directory] %>
 
 # Uncomment the following ONLY if necessary for debugging.
 # security = off

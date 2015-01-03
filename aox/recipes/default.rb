@@ -34,6 +34,8 @@ unless File.exists?(package_file)
             tar xvf #{tar_ball}
             cd archiveopteryx-#{version}
             INSTALLROOT=./install make install
+            mkdir --parents ./install/etc/init.d
+            ln -s /usr/local/archiveopteryx/lib/archiveopteryx ./install/etc/init.d/
             fpm -s dir -t #{node[:fpm][:package_type]} -n aox -v #{version} -p #{package_file} -C install .
         EOH
     end
@@ -53,15 +55,21 @@ postgresql_user 'aox' do
     password node[:aox][:db][:user_password]
 end
 
+postgresql_user 'aoxsuper' do
+    password node[:aox][:db][:owner_password]
+end
+
+
 template '/usr/local/archiveopteryx/archiveopteryx.conf' do
     mode '600'
     user 'aox'
 end
 
-postgresql_user 'aoxsuper' do
-    password node[:aox][:db][:owner_password]
-end
-
 template '/usr/local/archiveopteryx/aoxsuper.conf' do
     mode '400'
+end
+
+
+service 'archiveopteryx' do
+    action [:enable, :start]
 end
