@@ -56,6 +56,7 @@ smtpd_delay_reject = yes
 disable_vrfy_command = yes
 
 smtpd_discard_ehlo_keyword_address_maps = <%= postfix[:smtpd_discard_ehlo_keyword_address_maps] %>
+smtpd_relay_restrictions = <%= postfix[:smtpd_relay_restrictions].join(', ') %>
 
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases

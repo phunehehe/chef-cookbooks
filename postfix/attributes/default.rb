@@ -52,6 +52,7 @@ default[:postfix][:relay_domains] = [:$mydestination]
 default[:postfix][:relay_recipient_maps] = ''
 default[:postfix][:relayhost] = ''
 default[:postfix][:relayhost_role] = 'relayhost'
+default[:postfix][:saslauthd][:mechanism] = 'pam'
 default[:postfix][:sender_dependent_relayhost_maps] = ''
 default[:postfix][:sender_dependent_relayhosts] = []
 default[:postfix][:smtp_host_lookup] = 'dns'
@@ -84,8 +85,15 @@ default[:postfix][:virtual_mailbox_maps] = ''
 default[:postfix][:virtual_transport] = 'virtual'
 default[:postfix][:virtual_uid_static] = 5000
 
+default[:postfix][:smtpd_relay_restrictions] = %w{
+    permit_mynetworks
+    permit_sasl_authenticated
+    reject_unauth_destination
+}
+
 default[:postfix][:smtpd_recipient_restrictions] = %w{
     permit_mynetworks
+    permit_sasl_authenticated
     reject_unauth_destination
 }
 
