@@ -1,3 +1,5 @@
+include_recipe 'postfix::vanilla'
+
 %w{ libsasl2-2 sasl2-bin }.each do |p|
     package p
 end
@@ -17,4 +19,9 @@ end
 template '/etc/default/saslauthd' do
     mode '644'
     notifies :restart, 'service[saslauthd]'
+end
+
+template '/etc/postfix/sasl/smtpd.conf' do
+    mode '644'
+    notifies :restart, 'service[postfix]'
 end
