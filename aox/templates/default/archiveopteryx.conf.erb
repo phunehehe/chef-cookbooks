@@ -47,6 +47,9 @@ message-copy-directory = <%= node[:aox][:message_copy_directory] %>
 # Uncomment the following to require TLS to read or send mail.
 allow-plaintext-access = localhost
 
+tls-certificate = <%= node[:aox][:tls_certificate] %>
+use-imaps = <%= node[:aox][:use_imaps] %>
+
 # There are almost a hundred other configuration variables.
 # The ones above are only what many people will want to change during
 # installation. There are full lists at http://aox.org/conf/ and in

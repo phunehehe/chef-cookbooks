@@ -63,10 +63,12 @@ end
 template '/usr/local/archiveopteryx/archiveopteryx.conf' do
     mode '600'
     user 'aox'
+    notifies :restart, 'service[archiveopteryx]'
 end
 
 template '/usr/local/archiveopteryx/aoxsuper.conf' do
     mode '400'
+    notifies :restart, 'service[archiveopteryx]'
 end
 
 
