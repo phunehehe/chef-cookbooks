@@ -10,7 +10,7 @@ max_connections = 100
 shared_buffers = <%= pg_config[:shared_buffers] %>
 wal_keep_segments = <%= pg_config[:wal_keep_segments] %>
 
-data_directory = '/var/lib/postgresql/<%= pg_version -%>/main'
+data_directory = '<%= node[:postgresql][:data_dir] %>'
 hba_file = '/etc/postgresql/<%= pg_version -%>/main/pg_hba.conf'
 ident_file = '/etc/postgresql/<%= pg_version -%>/main/pg_ident.conf'
 external_pid_file = '/var/run/postgresql/<%= pg_version -%>-main.pid'

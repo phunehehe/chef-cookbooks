@@ -43,6 +43,7 @@ when "ubuntu"
   end
 
   default[:postgresql][:dir] = "/etc/postgresql/#{node[:postgresql][:version]}/main"
+  default[:postgresql][:data_dir] = "/var/lib/postgresql/#{node[:postgresql][:version]}/main"
 
 when "fedora"
 
