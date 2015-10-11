@@ -22,7 +22,7 @@ php_user = node[:php][:fpm][:user]
 
 git site_dir do
     repository 'https://github.com/roundcube/roundcubemail.git'
-    revision 'release-1.0'
+    revision 'release-1.1'
 end
 
 
