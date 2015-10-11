@@ -25,3 +25,10 @@ template '/etc/postfix/sasl/smtpd.conf' do
     mode '644'
     notifies :restart, 'service[postfix]'
 end
+
+group 'sasl' do
+    action :modify
+    members 'postfix'
+    append true
+    notifies :restart, 'service[postfix]'
+end
